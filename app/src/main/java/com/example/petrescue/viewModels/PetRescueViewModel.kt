@@ -10,6 +10,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.petrescue.api.PetRescueRepository
 import com.example.petrescue.model.BreedsImagesModel
 import com.example.petrescue.model.BreedsModel
+import com.example.petrescue.utils.Resource
+import com.example.petrescue.utils.launchFromNetwork
 import kotlinx.coroutines.launch
 import okio.IOException
 
@@ -23,8 +25,8 @@ class PetRescueViewModel(
     private val _breeds = MutableLiveData<BreedsModel>()
     val breeds: LiveData<BreedsModel> = _breeds
 
-    private val _specificBreed = MutableLiveData<BreedsImagesModel>()
-    val sprecificBreed: LiveData<BreedsImagesModel> = _specificBreed
+    private val _specificBreed = MutableLiveData<Resource<BreedsImagesModel>>()
+    val sprecificBreed: LiveData<Resource<BreedsImagesModel>> = _specificBreed
 
     fun onGetBreeds(){
         viewModelScope.launch {
@@ -38,13 +40,8 @@ class PetRescueViewModel(
     }
 
     fun onGetBreedsImage(breed: String){
-        viewModelScope.launch {
-            try {
-                val response = repository.getSpecificBreed(breed)
-                _specificBreed.value = response
-            }catch (e: IOException){
-                Log.e("PetRescueViewModel",e.message.toString())
-            }
+        launchFromNetwork(_specificBreed){
+            repository.getSpecificBreed(breed)
         }
     }
 

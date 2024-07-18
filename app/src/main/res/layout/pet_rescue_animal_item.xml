@@ -7,11 +7,26 @@
     android:backgroundTint="@color/white"
     app:cardCornerRadius="@dimen/dimen16"
     android:layout_margin="5dp">
-    
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/pet_rescue_animal_item_shimmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:shimmer_auto_start="true">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:background="@color/cardview_dark_background"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/pet_rescue_animal_item_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/pet_rescue_animal_item_image"

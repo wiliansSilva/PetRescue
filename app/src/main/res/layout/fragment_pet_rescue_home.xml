@@ -40,6 +40,18 @@
         app:spanCount="2"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/pet_rescue_animal_item"
-        tools:itemCount="4"/>
+        tools:itemCount="4"
+        tools:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/pet_rescue_animal_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserratbolditalic"
+        android:textSize="@dimen/dimen16Text"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Nenhum animal encontrato"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

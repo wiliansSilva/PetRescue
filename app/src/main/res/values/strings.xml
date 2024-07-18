@@ -9,5 +9,6 @@
 
     <string name="pet_rescue_bottom_sheet_input_name">Informe seu nome: </string>
     <string name="pet_rescue_bottom_sheet_input_address">Informe seu endereço: </string>
+    <string name="pet_rescue_bottom_sheet_button_save">Salvar</string>
 
 </resources>

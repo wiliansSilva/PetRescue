@@ -15,7 +15,15 @@
         android:layout_marginTop="@dimen/dimen16"
         android:layout_gravity="center"
         android:text="@string/pet_rescue_home_header_placeholder"
+        android:textColor="@color/black"
         android:fontFamily="@font/montserratbolditalic"
         android:drawableEnd="@drawable/arrow_down"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/pet_rescue_home_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen16"
+        android:layout_marginHorizontal="@dimen/dimen16"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

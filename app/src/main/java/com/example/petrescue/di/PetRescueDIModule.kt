@@ -19,9 +19,6 @@ object PetRescueDIModule {
         useMock: Boolean,
     ): Module {
         return module {
-            viewModel {
-                PetRescueViewModel(get())
-            }
 
             single {
                 if(useMock){
@@ -35,7 +32,11 @@ object PetRescueDIModule {
             }
 
             single<PetRescueRepository>{
-                PetRescueRepositoryImpl(get(), get())
+                PetRescueRepositoryImpl(get())
+            }
+
+            viewModel {
+                PetRescueViewModel(get())
             }
         }
     }

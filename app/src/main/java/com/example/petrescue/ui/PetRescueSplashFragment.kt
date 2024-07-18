@@ -32,7 +32,7 @@ class PetRescueSplashFragment : Fragment() {
     private fun setupListeners(){
         with(binding){
             splashButtonStart.setOnClickListener{
-                findNavController().navigate(PetRescueSplashFragmentDirections.actionPetRescueSplashFragmentToPetRescueHomeFragment())
+                findNavController().navigate(PetRescueSplashFragmentDirections.actionPetRescueSplashFragmentToPetRescueBottomNavigationFragment())
             }
         }
     }

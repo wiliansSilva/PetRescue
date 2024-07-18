@@ -10,7 +10,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.petrescue.databinding.PetRescueAnimalItemBinding
 import com.example.petrescue.model.BreedsImagesModel
 
-class PetRescueHomeAdapter: RecyclerView.Adapter<PetRescueHomeAdapter.PetRescueHomeViewHolder>() {
+class PetRescueHomeAdapter(
+    private val onItemClick: (String) -> Unit
+): RecyclerView.Adapter<PetRescueHomeAdapter.PetRescueHomeViewHolder>() {
 
     private var data: MutableList<String> = mutableListOf()
     private var breed: String = ""
@@ -49,6 +51,9 @@ class PetRescueHomeAdapter: RecyclerView.Adapter<PetRescueHomeAdapter.PetRescueH
                         .into(petRescueAnimalItemImage)
                     petRescueAnimalItemType.text = "Cachorro"
                     petRescueAnimalItemBreed.text = breed
+                }
+                root.setOnClickListener {
+                    onItemClick.invoke(item)
                 }
             }
 

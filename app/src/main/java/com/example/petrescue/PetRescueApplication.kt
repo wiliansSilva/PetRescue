@@ -23,7 +23,7 @@ class PetRescueApplication: Application() {
     }
 
     private fun getModule() = PetRescueDIModule.get(
-        baseUrl = "https://yourwebsite.net/api/",
+        baseUrl = "https://dog.ceo/api/",
         useMock = false
     )
 

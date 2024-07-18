@@ -2,20 +2,20 @@ package com.example.petrescue.ui
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.Button
-import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import com.example.petrescue.R
+import com.example.petrescue.adapters.PetRescueHomeAdapter
 import com.example.petrescue.databinding.FragmentPetRescueHomeBinding
-import com.example.petrescue.databinding.FragmentPetRescueSplashBinding
 import com.example.petrescue.databinding.PetRescueBottomSheetBinding
 import com.example.petrescue.viewModels.PetRescueViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -24,6 +24,8 @@ class PetRescueHomeFragment : Fragment() {
     private var _binding: FragmentPetRescueHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PetRescueViewModel by viewModel()
+    private val adapter by lazy { PetRescueHomeAdapter() }
+    private var breed: String = "akita"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +38,9 @@ class PetRescueHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.onGetBreeds()
+        viewModel.onGetBreedsImage(breed)
+
         setupView()
         setupObservables()
     }
@@ -45,6 +50,19 @@ class PetRescueHomeFragment : Fragment() {
             petRescueHomeAddress.setOnClickListener {
                 showDialog()
             }
+            petRescueAnimalRecycler.adapter = adapter
+            petRescueHomeSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    val searchText = query?.lowercase()
+                    breed = searchText.toString()
+                    searchText?.let { animalBreed -> viewModel.onGetBreedsImage(animalBreed) }
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return false
+                }
+            });
         }
     }
 
@@ -52,6 +70,10 @@ class PetRescueHomeFragment : Fragment() {
         with(viewModel){
             name.observe(viewLifecycleOwner) {
                 binding.petRescueHomeAddress.text = it
+            }
+            sprecificBreed.observe(viewLifecycleOwner){
+                if(it != null)
+                    adapter.submitData(it.message,breed)
             }
         }
     }

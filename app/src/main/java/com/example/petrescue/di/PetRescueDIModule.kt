@@ -32,7 +32,7 @@ object PetRescueDIModule {
             }
 
             single<PetRescueRepository>{
-                PetRescueRepositoryImpl(get())
+                PetRescueRepositoryImpl(get(),get())
             }
 
             viewModel {

@@ -19,11 +19,27 @@
         android:fontFamily="@font/montserratbolditalic"
         android:drawableEnd="@drawable/arrow_down"/>
 
-    <com.google.android.material.textfield.TextInputEditText
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/pet_rescue_home_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen16"
-        android:layout_marginHorizontal="@dimen/dimen16"/>
+        android:layout_marginHorizontal="@dimen/dimen16"
+        android:background="@drawable/search_bg"
+        android:focusable="false"
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/icon_search"
+        app:queryHint="Buscar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pet_rescue_animal_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen16"
+        android:layout_marginHorizontal="@dimen/dimen16"
+        app:spanCount="2"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/pet_rescue_animal_item"
+        tools:itemCount="4"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -21,9 +21,11 @@ class PetRescueViewModel(
 
     val name: MutableLiveData<String> = MutableLiveData("Informe seu nome")
     val address: MutableLiveData<String> = MutableLiveData("")
+    val images: MutableList<String> = mutableListOf()
+    var breed: String = "akita"
 
     private val _breeds = MutableLiveData<BreedsModel>()
-    val breeds: LiveData<BreedsModel> = _breeds
+    var breeds: LiveData<BreedsModel> = _breeds
 
     private val _specificBreed = MutableLiveData<Resource<BreedsImagesModel>>()
     val sprecificBreed: LiveData<Resource<BreedsImagesModel>> = _specificBreed

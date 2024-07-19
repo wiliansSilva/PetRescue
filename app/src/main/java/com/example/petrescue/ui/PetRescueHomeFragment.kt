@@ -21,6 +21,7 @@ import com.example.petrescue.databinding.FragmentPetRescueHomeBinding
 import com.example.petrescue.databinding.PetRescueBottomSheetBinding
 import com.example.petrescue.utils.Resource
 import com.example.petrescue.viewModels.PetRescueViewModel
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -28,10 +29,9 @@ class PetRescueHomeFragment : Fragment() {
 
     private var _binding: FragmentPetRescueHomeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: PetRescueViewModel by viewModel()
-    private val adapter by lazy { PetRescueHomeAdapter() }
+    private val viewModel: PetRescueViewModel by activityViewModel()
+    private val adapter by lazy { PetRescueHomeAdapter(::onItemClick) }
     private val dataShimmer = listOf("", "", "", "", "", "", "", "")
-    private var breed: String = "akita"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,8 +44,10 @@ class PetRescueHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.onGetBreeds()
-        viewModel.onGetBreedsImage(breed)
+        with(viewModel){
+            onGetBreeds()
+            onGetBreedsImage(breed)
+        }
 
         setupView()
         setupObservables()
@@ -61,7 +63,7 @@ class PetRescueHomeFragment : Fragment() {
             petRescueHomeSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     val searchText = query?.lowercase()
-                    breed = searchText.toString()
+                    viewModel.breed = searchText.toString()
                     searchText?.let { animalBreed -> viewModel.onGetBreedsImage(animalBreed) }
                     return true
                 }
@@ -138,4 +140,11 @@ class PetRescueHomeFragment : Fragment() {
 
     }
 
+    private fun onItemClick(item: String){
+        with(viewModel){
+            if(!images.contains(item))
+                images.add(item)
+        }
+
+    }
 }

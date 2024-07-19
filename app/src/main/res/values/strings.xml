@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">PetRescue</string>
+
+    <string name="pet_rescue_splash_title">PawsRescue</string>
+    <string name="pet_rescue_splash_subtitle">Ache sua companhia de pets</string>
+    <string name="pet_rescue_splash_button">Começar</string>
+
+    <string name="pet_rescue_home_header_placeholder">Informe seu endereço</string>
+
+    <string name="pet_rescue_bottom_sheet_input_name">Informe seu nome: </string>
+    <string name="pet_rescue_bottom_sheet_input_address">Informe seu endereço: </string>
+    <string name="pet_rescue_bottom_sheet_button_save">Salvar</string>
+
+    <string name="pet_rescue_favorites_title">Favoritos</string>
+
 </resources>

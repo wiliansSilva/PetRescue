@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/dialog_bg">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen16"
+            android:layout_marginTop="@dimen/dimen16"
+            android:text="@string/pet_rescue_bottom_sheet_input_name"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserratbolditalic"/>
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pet_rescue_bottom_sheet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen16"
+            android:fontFamily="@font/montserratbolditalic"
+            android:textSize="@dimen/dimen16Text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_color"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:hint="Nome"
+            app:boxStrokeWidth="0dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimen16">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen16"
+            android:textColor="@color/black"
+            android:text="@string/pet_rescue_bottom_sheet_input_address"
+            android:fontFamily="@font/montserratbolditalic"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pet_rescue_bottom_sheet_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserratbolditalic"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_color"
+            android:textSize="@dimen/dimen16Text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:hint="Endereço"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pet_rescue_bottom_sheet_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dimen16"
+        android:backgroundTint="@color/pet_rescue_color"
+        android:text="@string/pet_rescue_bottom_sheet_button_save"
+        android:textColor="@color/white"
+        android:layout_gravity="center"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

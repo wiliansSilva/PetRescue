@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="pet_rescue_color">#dc151e</color>
+    <color name="hint_color">#808080</color>
 </resources>

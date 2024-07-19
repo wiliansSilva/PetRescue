@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">PetRescue</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="pet_rescue_splash_title">PawsRescue</string>
+    <string name="pet_rescue_splash_subtitle">Find your perfect companion</string>
+    <string name="pet_rescue_splash_button">Get started</string>
+
+    <string name="pet_rescue_home_header_placeholder">Informe seu endereço</string>
+
+    <string name="pet_rescue_bottom_sheet_input_name">Informe seu nome: </string>
+    <string name="pet_rescue_bottom_sheet_input_address">Informe seu endereço: </string>
+    <string name="pet_rescue_bottom_sheet_button_save">Salvar</string>
+
 </resources>

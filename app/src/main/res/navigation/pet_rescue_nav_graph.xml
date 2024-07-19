@@ -9,5 +9,14 @@
         android:id="@+id/petRescueSplashFragment"
         android:name="com.example.petrescue.ui.PetRescueSplashFragment"
         android:label="fragment_pet_rescue_splash"
-        tools:layout="@layout/fragment_pet_rescue_splash" />
+        tools:layout="@layout/fragment_pet_rescue_splash" >
+        <action
+            android:id="@+id/action_petRescueSplashFragment_to_petRescueHomeFragment"
+            app:destination="@id/petRescueHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/petRescueHomeFragment"
+        android:name="com.example.petrescue.ui.PetRescueHomeFragment"
+        android:label="fragment_pet_rescue_home"
+        tools:layout="@layout/fragment_pet_rescue_home" />
 </navigation>

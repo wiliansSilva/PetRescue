@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.safeargs)
 }
 
 android {
@@ -55,16 +56,11 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.google.code.gson:gson:2.9.1")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.facebook.shimmer:shimmer:0.5.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-//    implementation(libs.koin)
-//    implementation(libs.viewmodel)
-//    implementation(libs.okhttp)
-//    implementation(libs.viewmodelScope)
-//    implementation(libs.runtime)
-//    implementation(libs.liveData)
-//    implementation(libs.retrofit)
-//    implementation(libs.gsonConverter)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
